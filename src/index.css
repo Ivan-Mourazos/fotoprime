@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-500: #8b5cf6; /* Neon Violet */
+  --color-primary-600: #7c3aed;
+  --color-primary-400: #a78bfa;
+  --color-primary-glow: rgba(139, 92, 246, 0.5);
+  
+  --color-accent-500: #06b6d4; /* Neon Cyan */
+  --color-accent-glow: rgba(6, 182, 212, 0.5);
+
+  --color-background: #0a0a0a; /* Deep black */
+  --color-panel: rgba(255, 255, 255, 0.03);
+  --color-panel-border: rgba(255, 255, 255, 0.08);
+
+  --font-sans: "Inter", "Outfit", "Roboto", system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-gray-100 antialiased overflow-hidden selection:bg-primary-500/30;
+    font-family: var(--font-sans);
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-panel backdrop-blur-xl border border-panel-border shadow-2xl;
+  }
+  
+  .text-glow-primary {
+    text-shadow: 0 0 20px var(--color-primary-glow);
+  }
+
+  .text-glow-accent {
+    text-shadow: 0 0 20px var(--color-accent-glow);
+  }
+  
+  .box-glow-primary {
+    box-shadow: 0 0 25px -5px var(--color-primary-glow);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-white/20;
+}
